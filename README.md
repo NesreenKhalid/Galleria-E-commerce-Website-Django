@@ -1,1 +1,0 @@
-# Galleria-E-commerce-Website-Django

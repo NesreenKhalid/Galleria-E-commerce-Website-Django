@@ -9,7 +9,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('product', '0006_delete_cart'),
     ]
 
     operations = [

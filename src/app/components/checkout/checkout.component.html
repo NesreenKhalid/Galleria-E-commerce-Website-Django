@@ -1,0 +1,168 @@
+<div class="card">
+  <div class="card-body">
+
+    <!--Grid row-->
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="col-lg-8 mb-4">
+
+        <!-- Pills navs -->
+        <ul class="nav md-pills nav-justified pills-primary font-weight-bold">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#tabCheckoutBilling123" role="tab">1. Billing</a>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#tabCheckoutPayment123" role="tab">2. Payment</a>
+          </li>
+        </ul>
+
+        <!-- Pills panels -->
+        <div class="tab-content pt-4">
+
+          <!--Panel 1-->
+          <div class="tab-pane fade in show active" id="tabCheckoutBilling123" role="tabpanel">
+
+            <!--Card content-->
+            <form>
+              <label for="address" class="">Address</label>
+              <input type="text" id="address" class="form-control mb-4" placeholder="1234 Main St">
+
+              <label for="address-2" class="">Address 2 </label>
+              <input type="text" id="address-2" class="form-control mb-4" placeholder="Apartment or suite">
+
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+
+                  <label for="country">Country</label>
+                  <select class="custom-select d-block w-100" id="country" required>
+                    <option value="">Choose...</option>
+                    <option>United States</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                  <label for="state">State</label>
+                  <select class="custom-select d-block w-100" id="state" required>
+                    <option value="">Choose...</option>
+                    <option>California</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please provide a valid state.
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                  <label for="zip">Zip</label>
+                  <input type="text" class="form-control" id="zip" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Zip code required.
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+              </div>
+              <hr>
+
+              <div class="mb-1">
+                <input type="checkbox" class="form-check-input filled-in" id="chekboxRules">
+                <label class="form-check-label" for="chekboxRules">I accept the terms and conditions</label>
+              </div>
+
+              <hr>
+
+              <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Next step</button> -->
+
+            </form>
+
+          </div>
+
+          <!--Panel 3-->
+          <div class="tab-pane fade" id="tabCheckoutPayment123" role="tabpanel">
+
+            <div class="d-block my-3">
+              <div class="mb-2">
+                <input name="group2" type="radio" class="form-check-input with-gap" id="radioWithGap4" checked
+                  required>
+                <label class="form-check-label" for="radioWithGap4">Cash</label>
+              </div>
+              <div class="mb-2">
+                <input name="group2" type="radio" class="form-check-input with-gap" id="radioWithGap6" required>
+                <label class="form-check-label" for="radioWithGap6">Paypal</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-name123">Name on card</label>
+                <input type="text" class="form-control" id="cc-name123" placeholder="" required>
+                <small class="text-muted">Full name as displayed on card</small>
+                <div class="invalid-feedback">
+                  Name on card is required
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-number123">Credit card number</label>
+                <input type="text" class="form-control" id="cc-number123" placeholder="" required>
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration123">Expiration</label>
+                <input type="text" class="form-control" id="cc-expiration123" placeholder="" required>
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-cvv123">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv123" placeholder="" required>
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
+              </div>
+            </div>
+
+            <hr class="mb-4">
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit" data-toggle="modal" data-target="#orderDone">Place order</button>
+            <button class="btn btn-primary btn-lg btn-block" routerLink="">cancel</button>
+
+          </div>
+
+        </div>
+        <!-- Pills panels -->
+
+
+
+      </div>
+
+      <!--Grid column-->
+      <div class="col-lg-4 mb-4">
+        <app-bill></app-bill>
+      </div>
+
+    </div>
+
+  </div>
+
+  <app-order-done></app-order-done>
+</div>

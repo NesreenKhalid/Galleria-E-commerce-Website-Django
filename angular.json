@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "testFront": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "testFront"
+    }
+  },
+  "defaultProject": "testFront",
+  "cli": {
+    "analytics": "2d5229c2-ebe4-4c1b-b97a-f0aab3a7e3d0"
+  }
 }

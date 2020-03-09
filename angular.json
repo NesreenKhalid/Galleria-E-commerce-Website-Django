@@ -123,6 +123,6 @@
   },
   "defaultProject": "testFront",
   "cli": {
-    "analytics": false
+    "analytics": "2d5229c2-ebe4-4c1b-b97a-f0aab3a7e3d0"
   }
 }

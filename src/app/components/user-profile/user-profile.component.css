@@ -1,0 +1,163 @@
+
+body{margin-top:20px;}
+
+.align-center, .center {
+    text-align: center!important;
+}
+
+.profile-user-info {
+    display: table;
+    width: 98%;
+    width: calc(100% - 24px);
+    margin: 0 auto
+}
+
+.profile-info-row {
+    display: table-row
+}
+
+.profile-info-name,
+.profile-info-value {
+    display: table-cell;
+    border-top: 1px dotted #D5E4F1
+}
+
+.profile-info-name {
+    text-align: right;
+    padding: 6px 10px 6px 4px;
+    font-weight: 400;
+    color: #667E99;
+    background-color: transparent;
+    width: 110px;
+    vertical-align: middle
+}
+
+.profile-info-value {
+    padding: 6px 4px 6px 6px
+}
+
+.profile-info-value>span+span:before {
+    display: inline;
+    content: ",";
+    margin-left: 1px;
+    margin-right: 3px;
+    color: #666;
+    border-bottom: 1px solid #FFF
+}
+
+.profile-info-value>span+span.editable-container:before {
+    display: none
+}
+
+.profile-info-row:first-child .profile-info-name,
+.profile-info-row:first-child .profile-info-value {
+    border-top: none
+}
+
+.profile-user-info-striped {
+    border: 1px solid #DCEBF7
+}
+
+.profile-user-info-striped .profile-info-name {
+    color: #336199;
+    background-color: #EDF3F4;
+    border-top: 1px solid #F7FBFF
+}
+
+.profile-user-info-striped .profile-info-value {
+    border-top: 1px dotted #DCEBF7;
+    padding-left: 12px
+}
+
+.profile-picture {
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    padding: 4px;
+    display: inline-block;
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .15)
+}
+
+.profile-activity .thumbicon {
+    background-color: #74ABD7;
+    display: inline-block;
+    border-radius: 100%;
+    width: 38px;
+    height: 38px;
+    color: #FFF;
+    font-size: 18px;
+    text-align: center;
+    line-height: 38px;
+    margin-right: 10px;
+    margin-left: 0;
+    text-shadow: none!important
+}
+
+
+.user-profile .ace-thumbnails li {
+    border: 1px solid #CCC;
+    padding: 3px;
+    margin: 6px
+}
+
+.user-profile .ace-thumbnails li .tools {
+    left: 3px;
+    right: 3px
+}
+
+.user-profile .ace-thumbnails li:hover .tools {
+    bottom: 3px
+}
+
+.user-title-label:hover {
+    text-decoration: none
+}
+
+.user-title-label+.dropdown-menu {
+    margin-left: -12px
+}
+
+.profile-contact-links {
+    padding: 4px 2px 5px;
+    border: 1px solid #E0E2E5;
+    background-color: #F8FAFC
+}
+
+.btn-link:hover .ace-icon {
+    text-decoration: none!important
+}
+
+.user-profile .custom-file{
+    background-color: #EEE;
+    width: 400px;
+    border: 1px solid #ccc;
+    height: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.user-profile .custom-file {
+    background-color: #EEE;
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.user-profile .custom-file input[type="file"]{
+    width: 100%;
+    height: 100%;
+    opacity: 0%;
+    position: absolute;
+    z-index: 3;
+}
+
+.user-profile .custom-file button{
+    width: 100%;
+    height: 100%;
+}
+

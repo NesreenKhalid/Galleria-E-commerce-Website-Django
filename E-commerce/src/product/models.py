@@ -1,6 +1,24 @@
 from django.db import models
 
 # Create your models here.
+
+#mina start 
+class Category(models.Model):
+    CName=models.CharField(max_length=30,verbose_name=("Name of Category"))
+    CImage= models.ImageField(upload_to='product/',verbose_name=("Image"))
+
+    def __str__(self):
+        return self.CName
+
+class Brand(models.Model):
+    BRDName=models.CharField(max_length=30,verbose_name=("Name of Brand"))
+    BRDCategoryID = models.ForeignKey(Category, on_delete=models.CASCADE,verbose_name=("Category"))
+
+    def __str__(self):
+        return str(self.BRDCategoryID)
+
+#mina end
+
 class Product(models.Model):
     name = models.CharField(max_length=30, verbose_name=("Product Name"))
     description = models.TextField(verbose_name=("Product Description"))

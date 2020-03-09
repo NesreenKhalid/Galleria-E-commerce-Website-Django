@@ -10,6 +10,9 @@ import { HomeComponent } from './components/home/home.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { BillComponent } from './components/bill/bill.component';
 import { OrderDoneComponent } from './components/order-done/order-done.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductComponent } from './product/product.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
@@ -22,6 +25,9 @@ import { OrderDoneComponent } from './components/order-done/order-done.component
     CheckoutComponent,
     BillComponent,
     OrderDoneComponent,
+    ProductListComponent,
+    ProductComponent,
+    CardComponent,
 
   ],
   imports: [

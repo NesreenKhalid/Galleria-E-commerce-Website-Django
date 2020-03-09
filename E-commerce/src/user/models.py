@@ -3,7 +3,7 @@ from django.db import models
 from django.db import models
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
+from django.utils import timezone
 
 #User: ID (auto increment), name, password, email, phone, picture, credit card id last-login, date-joined
 class User(models.Model):

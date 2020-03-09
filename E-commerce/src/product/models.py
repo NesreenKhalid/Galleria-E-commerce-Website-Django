@@ -4,18 +4,18 @@ from django.db import models
 
 #mina start 
 class Category(models.Model):
-    CName=models.CharField(max_length=30,verbose_name=("Name of Category"))
-    CImage= models.ImageField(upload_to='product/',verbose_name=("Image"))
-
+    name=models.CharField(max_length=30,verbose_name=("Name of Category"))
+    image= models.ImageField(upload_to='category/',verbose_name=("Image"))
+    catParent=models.ForeignKey('self', on_delete=models.CASCADE,blank=True,null=True,verbose_name=("Category Parent"))
     def __str__(self):
-        return self.CName
+        return self.name
 
 class Brand(models.Model):
-    BRDName=models.CharField(max_length=30,verbose_name=("Name of Brand"))
-    BRDCategoryID = models.ForeignKey(Category, on_delete=models.CASCADE,verbose_name=("Category"))
+    name=models.CharField(max_length=30,verbose_name=("Name of Brand"))
+    categoryID = models.ForeignKey(Category, on_delete=models.CASCADE,verbose_name=("Category"))
 
     def __str__(self):
-        return str(self.BRDCategoryID)
+        return str(self.categoryID)
 
 #mina end
 
@@ -39,10 +39,3 @@ class ProductComment(models.Model):
     #UID = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField()
     review = models.DecimalField(decimal_places=1,max_digits=2)
-
-
-
-
-
-
-

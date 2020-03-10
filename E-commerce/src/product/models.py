@@ -36,6 +36,6 @@ class ProductPicture(models.Model):
 class ProductComment(models.Model):
     PID = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=("Product ID"))
     #notes Menna UID is generated Error ==>NameError: name 'User' is not defined
-    UID = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=("User ID"))
+    #UID = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=("User ID"))
     comment = models.TextField(verbose_name=("Product Comment"))
     review = models.DecimalField(decimal_places=1,max_digits=2, verbose_name=("Product Stars Review"))

@@ -26,7 +26,9 @@ SECRET_KEY = '01%65yn5$(4^rr*h+_v!9q65t+%-!y(up_6dh)0)%_)4ddc0(f'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:4200'
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',#Mina
 ]
 
 MIDDLEWARE = [
@@ -49,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',#Mina
+    'django.middleware.common.CommonMiddleware',#Mina
 ]
 
 ROOT_URLCONF = 'project.urls'

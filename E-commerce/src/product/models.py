@@ -23,7 +23,7 @@ class Product(models.Model):
     name = models.CharField(max_length=30, verbose_name=("Product Name"))
     description = models.TextField(verbose_name=("Product Description"))
     model = models.CharField(max_length=30, verbose_name=("Product Model"))
-    price = models.DecimalField(decimal_places=2, max_digits=6), verbose_name=("Product Price")
+    price = models.DecimalField(decimal_places=2, max_digits=6,verbose_name=("Product Price"))
     stock_items = models.IntegerField(verbose_name=("Product Items in Stock"))
     BID = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name=("Brand ID"))
 
@@ -36,6 +36,6 @@ class ProductPicture(models.Model):
 
 class ProductComment(models.Model):
     PID = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=("Product ID"))
-    UID = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=("User ID"))
+   # UID = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=("User ID"))
     comment = models.TextField(verbose_name=("Product Comment"))
     review = models.DecimalField(decimal_places=1,max_digits=2, verbose_name=("Product Stars Review"))

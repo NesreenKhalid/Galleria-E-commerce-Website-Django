@@ -15,6 +15,7 @@ import { CardComponent } from './components/card/card.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { SignupComponent } from './components/signup/signup.component';
+import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { SignupComponent } from './components/signup/signup.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

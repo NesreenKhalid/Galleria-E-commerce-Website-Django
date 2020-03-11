@@ -8,19 +8,19 @@ import { ProductlistService } from './components/services/productlist.service';
 })
 export class AppComponent {
   title = 'testFront';
-  movies = [{title: 'test'}];
+  /*category = [{title: 'test'}];
   constructor(private api : ProductlistService){
-    this.getMovies();
+    this.getCategory();
   }
-    getMovies = () => {
+    getCategory = () => {
       this.api.getAllProducts().subscribe(
         data => {
-          this.movies = data;
-          console.log(this.movies);
+          this.category = data;
+          console.log(this.category);
         },
         error => {
           console.log(error);
         }
       );
-    }
+    }*/
 }

@@ -9,7 +9,7 @@ export class ProductlistService {
   httpHeaders=new HttpHeaders({'Content-Type':'application/json'})
   constructor(private http :HttpClient) { }
   getAllProducts():Observable<any>{
-    return this.http.get(this.baseurl+'/category/',
+    return this.http.get(this.baseurl+'/productlist/',
     {headers :this.httpHeaders });
   }
 }

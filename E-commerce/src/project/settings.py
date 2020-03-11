@@ -26,17 +26,22 @@ SECRET_KEY = '01%65yn5$(4^rr*h+_v!9q65t+%-!y(up_6dh)0)%_)4ddc0(f'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:4200'
+]
 # Application definition
 
 INSTALLED_APPS = [
+    'product.apps.ProductConfig',
+    'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',#Mina
 ]
 
 MIDDLEWARE = [
@@ -47,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',#Mina
+    'django.middleware.common.CommonMiddleware',#Mina
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -76,7 +83,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'E_commerce',
+        'NAME': 'dTest',#E_commerce
         'USER':'django',
         'PASSWORD':'1234',
         'HOST':'localhost',
@@ -116,8 +123,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,"static"),
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')

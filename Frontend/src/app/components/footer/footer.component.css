@@ -1,11 +1,6 @@
-.dropdown-menu {
-    min-width: 35rem;
-}
 .text{
     color:#010a43;
-}
-.bg{
-    color:#ffc2c2;
+    text-decoration: none;
 }
 .link{
     color: #010a43;
@@ -21,16 +16,9 @@
     width: auto;
     float: left;
 }
-.button{
+.light_bg{
     background-color: #ffc2c2;
-    border: none;
 }
-.button:hover{
+.dark_bg{
     background-color: #FF748C;
-}
-.input{
-    border-color: #ffc2c2;
-}
-.input:selection{
-    border-color: #FF748C;
 }

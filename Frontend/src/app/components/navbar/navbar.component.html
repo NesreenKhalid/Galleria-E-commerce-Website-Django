@@ -1,41 +1,70 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="products/1">Home <span class="sr-only">(current)</span></a>
-        </li>
+  <a class="navbar-brand" routerLink="#">Galleria</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="products/1">
+          <img src="/assets/img/house.svg" alt="" width="32" height="32" title="Home">
+           <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item toggle">
+        <a class="nav-link" routerLink="/profile/1" routerLinkActive="active"><img src="/assets/img/person.svg" alt="" width="32" height="32" title="Profile"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#"><img src="/assets/img/list-check.svg" alt="" width="32" height="32" title="Wish List"></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle " routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu row" aria-labelledby="navbarDropdown">
         
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="products/2">Action</a>
-            <a class="dropdown-item" routerLink="products/3">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="products/4">Something else here</a>
+          <div class="container">
+            <ul class="nobull">
+              <a class="col-md-3 font-weight-bold link" routerLink="products/2">Electronics</a>
+              <li><a class="col-md-3 link" routerLink="#">Laptops</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Mobile Phones</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Televisions</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Refrigerators</a></li>
+            </ul>
+            <ul class="nobull">
+              <a class="col-md-3 font-weight-bold link" routerLink="#">Furniture</a>
+              <li><a class="col-md-3 link" routerLink="#">Living Rooms</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Bedrooms</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Kitchens</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Kids Rooms</a></li>
+            </ul>
+            <ul class="nobull">
+              <a class="col-md-3 font-weight-bold link" routerLink="#">Health&Care</a>
+              <li><a class="col-md-3 link" routerLink="#">Diet Food</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Gym&Sports</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Facial Care</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Makeup</a></li>
+            </ul>
+            <ul class="nobull">
+              <a class="col-md-3 font-weight-bold link" routerLink="#">Clothing</a>
+              <li><a class="col-md-3 link" routerLink="#">Women</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Men</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Girls</a></li>
+              <li><a class="col-md-3 link" routerLink="#">Boys</a></li>
+            </ul>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-        <li class="nav-item">
-          <!-- test route  -->
-          <a class="nav-link" routerLink="/cart/1" routerLinkActive="active">Cart</a>
-        </li>
-        <li class="nav-item">
-          <!-- test route  for profile -->
-          <a class="nav-link" routerLink="/profile/1" routerLinkActive="active">my profile</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/cart/1" routerLinkActive="active"><img src="/assets/img/cart.png" alt="" width="32" height="32" title="Cart"></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="input form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn button btn-outline-success my-2 my-sm-0" type="submit"><img src="/assets/img/search.svg" alt="" width="26" height="26" title="Search"></button>
+      <svg class="bi bi-shield-fill" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"></svg>
+    </form>
+    <button class="btn text button btn-outline-success my-2 my-sm-0">Sign Up</button>
+  </div>
+</nav>

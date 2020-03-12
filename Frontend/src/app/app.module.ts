@@ -15,7 +15,8 @@ import { CardComponent } from './components/card/card.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { SignupComponent } from './components/signup/signup.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component'
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {HttpClientModule} from '@angular/common/http'
     UserProfileComponent,
     WishlistComponent,
     SignupComponent,
+    FooterComponent,
 
   ],
   imports: [

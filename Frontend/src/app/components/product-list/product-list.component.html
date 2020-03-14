@@ -2,18 +2,29 @@
         <div class="row">
                     <!-- Put Grid System-->
                     <!-- md== Merge-->
-                    <div *ngFor="let product of products">
-                      <div class="col-md-4 mt-3">
-                        <div class="card" style="width: 18rem;">
-                          <img class="card-img-top" src="assets/img/lap.jpg" alt="Card image cap">
-                          <div class="card-body">
-                            <h5 class="card-title">{{products.name}}</h5>
-                            <p class="card-text">{{products.description}}</p>
-                            <a routerLink="/product/1" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                      </div>    
-                      </div>
-                    </div>
+                    <div *ngIf="products.length > 0; then thenBlock else elseBlock"></div>
+                    <ng-template #thenBlock>
+                        <div *ngFor="let product of products | paginate: { itemsPerPage: count, currentPage: p }">
+                            <div class="col-md-4 mt-3" (click)=productClicked(product)>
+                                  <div class="card" style="width: 18rem;">
+                               
+                                        <img class="card-img-top" style="max-height : 143px;" src="{{product.base_view}}" alt="Card image cap">
+                                       <div class="card-body">
+                                            <h5 class="card-title">{{product.name}}</h5>
+                                            <p class="card-text">{{product.description}}</p>
+                                             <a routerLink="/product/1" class="btn btn-primary">Go somewhere</a>
+                                       </div>
+                                  </div>    
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template #elseBlock>Content to render when value is null.</ng-template>
+        </div>
+ <!--Including the pagination control.-->
+ <div class="text-right">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>
 <!--                  
                       <div class="col-md-4 mt-3">
                         <app-card></app-card>      
@@ -41,6 +52,3 @@
 
       </div> 
     -->
-  <div class="container">
-  </div>
-</div>

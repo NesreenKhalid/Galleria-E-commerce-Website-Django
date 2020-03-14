@@ -28,7 +28,7 @@ class Address(models.Model):
 
 #Wishlist
 class Wishlist(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='user ID')
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='product ID')
     product = models.ForeignKey('product.Product', on_delete=models.CASCADE, verbose_name='product ID')
 
 class Cart(models.Model):

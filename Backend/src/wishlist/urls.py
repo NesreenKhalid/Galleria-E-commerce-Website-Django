@@ -12,20 +12,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path , include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.urls import include, path
+from wishlist.api import router
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('wishlist',include('wishlist.urls')),
-    path('',include('product.urls')),
-    path('category',include('product.urls')),
-    path('Brand',include('product.urls')),
-    path('productlist',include('product.urls')),
-    
-    
+    path('', include(router.urls)),
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

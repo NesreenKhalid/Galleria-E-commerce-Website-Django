@@ -22,3 +22,8 @@
 .dark_bg{
     background-color: #FF748C;
 }
+
+.page-footer{
+    bottom:0;
+    position: fixed;
+}

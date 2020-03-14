@@ -1,0 +1,28 @@
+.carousel {
+    widows: col md -4px;
+    height:540px;
+    float: left;
+    margin-left: 10px;
+}
+
+.info-box{
+    widows: col md -8px;
+    height:540px;
+    float:right;
+    margin-left: auto;
+}
+
+.buttonM{
+    background-color: #ffc2c2;
+    border: none;
+    margin:2px;
+}
+.buttonM:hover{
+    background-color: #FF748C;
+}
+.text{
+    color:#010a43;
+}
+.checked {
+    color: orange;
+  }

@@ -13,10 +13,8 @@ class Category(models.Model):
 class Brand(models.Model):
     name=models.CharField(max_length=30,verbose_name=("Name of Brand"))
     categoryID = models.ForeignKey(Category, on_delete=models.CASCADE,verbose_name=("Category"))
-
     def __str__(self):
-        return str(self.categoryID)
-
+        return str(self.name)
 #mina end
 class ProductPicture(models.Model):
     front_view = models.ImageField(verbose_name=("Product Front Image"))
@@ -32,6 +30,9 @@ class Product(models.Model):
     stock_items = models.IntegerField(verbose_name=("Product Items in Stock"))
     pictures = models.ForeignKey(ProductPicture, null=True, on_delete=models.CASCADE, verbose_name="Product Pictures")
     BID = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name=("Brand ID"))
+
+    def __str__(self):
+        return str(self.name)
 
 class ProductComment(models.Model):
     PID = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=("Product ID"))

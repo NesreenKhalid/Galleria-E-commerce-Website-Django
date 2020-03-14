@@ -12,4 +12,5 @@ export class ProductlistService {
     return this.http.get(this.baseurl+'/productlist/',
     {headers :this.httpHeaders });
   }
+
 }

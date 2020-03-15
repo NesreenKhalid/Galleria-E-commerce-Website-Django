@@ -16,23 +16,23 @@ class Brand(models.Model):
     def __str__(self):
         return str(self.name)
 #mina end
-class ProductPicture(models.Model):
-    front_view = models.ImageField(verbose_name=("Product Front Image"))
-    top_view = models.ImageField(verbose_name=("Product Top Image"))
-    side_view = models.ImageField(verbose_name=("Product Side Image"))
-    inner_view = models.ImageField(verbose_name=("Product Inner Image"))
-
 class Product(models.Model):
     name = models.CharField(max_length=30, verbose_name=("Product Name"))
     description = models.TextField(verbose_name=("Product Description"))
     model = models.CharField(max_length=30, verbose_name=("Product Model"))
     price = models.DecimalField(decimal_places=2, max_digits=6,verbose_name=("Product Price"))
     stock_items = models.IntegerField(verbose_name=("Product Items in Stock"))
-    pictures = models.ForeignKey(ProductPicture, null=True, on_delete=models.CASCADE, verbose_name="Product Pictures")
     BID = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name=("Brand ID"))
-
+    base_view = models.ImageField(verbose_name=("Product  Image"), blank=True , null=True)#mina Edit
     def __str__(self):
         return str(self.name)
+
+class ProductPicture(models.Model):
+    productId = models.ForeignKey(Product, null=True, on_delete=models.CASCADE, verbose_name="Product ID")
+    front_view = models.ImageField(verbose_name=("Product Front Image"))
+    top_view = models.ImageField(verbose_name=("Product Top Image"))
+    side_view = models.ImageField(verbose_name=("Product Side Image"))
+    inner_view = models.ImageField(verbose_name=("Product Inner Image"))
 
 class ProductComment(models.Model):
     PID = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=("Product ID"))

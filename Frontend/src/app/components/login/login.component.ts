@@ -4,21 +4,36 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [UserAPIService]
 })
 export class LoginComponent {
-  user: string;
-  token: string;
-  login: boolean;
-  constructor(private userServices: UserAPIService) {
-    const first = this.userServices.login('admin', 'admin');
-    const second = this.userServices.login('admin', 'admin2');
-    console.log(first, second);
-    console.log(second, first);
+  products ;
+  p: number = 1;
+  count: number = 1;
+  constructor(private api: UserAPIService) {
+    this.getProduct();
+   }
+
+
+    getProduct = () => {
+      this.api.getAllUsers().subscribe(
+        data => {
+          this.products = data;
+          console.log(this.products);          
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  productClicked=(product)=>{
+	console.log(product.id);
+  
   }
 
   public getUser() {
-    return this.user;
+    // return this.user;
   }
 
   public setUser(){
@@ -26,14 +41,14 @@ export class LoginComponent {
   }
 
   public getLogin() {
-    return this.user;
+    // return this.user;
   }
 
   public setLogin(){
     // this.user=data;
   }
   public getToken() {
-    return this.user;
+    // return this.user;
   }
 
   public setToken(){

@@ -6,16 +6,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
 #User: ID (auto increment), name, password, email, phone, picture, credit card id last-login, date-joined
-class User(models.Model):
-    id = models.AutoField(primary_key=True)
-    user_name = models.CharField(max_length=100, verbose_name=_("User Name"))
-    user_password = models.CharField(max_length=128, verbose_name=_("User Password"))
-    user_email = models.EmailField(blank=True, default='', unique=True, verbose_name=_("Email"))
-    user_phone = models.CharField(max_length=128, verbose_name=_("User Phone"))
-    user_pic = models.ImageField(upload_to = 'user/', verbose_name=_("Profile Picture") )
-    user_credit_id = models.CharField(max_length=128, verbose_name=_("Credit Card ID"))
-    last_login = models.DateTimeField(blank=True, null=True, verbose_name=_("Last Login"))
-    date_joined = models.DateTimeField(default=timezone.now)
+class User (models.Model):
+    id = models.AutoField(primary_key = True)
+    username = models.CharField(max_length=20, unique=True)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=20)
+    avatar = models.ImageField()
 
     def __str__(self):
         return self.user_name

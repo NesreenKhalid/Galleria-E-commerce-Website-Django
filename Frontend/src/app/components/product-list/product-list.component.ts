@@ -10,7 +10,7 @@ export class ProductListComponent implements OnInit {
   products ;//= [{description: "MinaNagy",id:5,model:"",name:"test",price: 200,stock_items: 2}];
   // Pagination parameters.
   p: number = 1;
-  count: number = 1;
+  count: number = 3;
   constructor(private api : ProductlistService){
     this.getProduct();
   }

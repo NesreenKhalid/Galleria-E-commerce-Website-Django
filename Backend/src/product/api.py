@@ -16,7 +16,17 @@ class BrandAPI(ListAPIView):
 
 class ProductAPI(ListAPIView):
     queryset = Product.objects.all()
-    #paginator = Paginator(queryset, 2) # Show 25 contacts per page.
-    #page = request.GET.get('page') 
-    #queryset = paginator.get_page(page)
     serializer_class = ProductListSerializer
+class Product_FilterAPI(ListAPIView):
+    serializer_class = ProductListSerializer
+    def get_queryset(self):
+        num = self.kwargs['num']
+        return Product.objects.filter(BID=num)
+    #queryset = Product.objects.filter(BID=2)
+    
+
+#class Product_Filter_name_API(ListAPIView):  #Don't Work
+  #  serializer_class = ProductListSerializer
+ #   def get_queryset(self):
+   #     username = self.kwargs['username']
+   #     return Product.objects.filter(name=username)

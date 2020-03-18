@@ -13,8 +13,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import include, path
-from wishlist.api import router
+from wishlist.api import WishlistAPI
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', WishlistAPI.as_view()),
 ]

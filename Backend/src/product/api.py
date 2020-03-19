@@ -7,6 +7,8 @@ from .models import Brand
 from .serializers import ProductListSerializer
 from .models import Product
 from .serializers import ProductIDSerializer
+from .models import ProductPicture
+from .serializers import PictureIDSerializer
 class CategoryAPI(ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -46,3 +48,9 @@ class GetProductById(ListAPIView):
     def get_queryset(self):
         id = self.kwargs['id']
         return Product.objects.filter(id = id)
+
+class GetPicturesById(ListAPIView):
+    serializer_class = PictureIDSerializer
+    def get_queryset(self):
+        id = self.kwargs['id']
+        return ProductPicture.objects.filter(id = id)

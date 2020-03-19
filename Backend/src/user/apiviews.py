@@ -12,8 +12,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 
-from .serializer import UserSerializer, RegisterSerializer
-from .models import User
+from .serializer import UserSerializer, RegisterSerializer, CartSerializer
+from .models import User , Cart
 
 ### we have defined the http methods allowed with 'http_method_names'
 ### we have allowed 'get' and 'update' method and disapled 'post'
@@ -43,4 +43,9 @@ class LoginView(APIView):
 
         except User.DoesNotExist:
             raise exceptions.AuthenticationFailed('No such user')
-        
+class CartView(generics.ListAPIView):
+    serializer_class = CartSerializer
+    queryset = Cart.objects.all()
+    # def get_queryset(self):
+    #     id = self.kwargs['id']
+    #     return Cart.objects.filter(UID = id)

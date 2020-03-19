@@ -40,3 +40,9 @@ class Product_FilterAPI(ListAPIView):
  #   def get_queryset(self):
    #     username = self.kwargs['username']
    #     return Product.objects.filter(name=username)
+
+class GetProductById(ListAPIView):
+    serializer_class = ProductListSerializer
+    def get_queryset(self):
+        id = self.kwargs['id']
+        return Product.objects.filter(id = id)

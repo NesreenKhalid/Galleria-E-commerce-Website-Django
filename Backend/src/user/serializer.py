@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, Cart
 
 ### serializer the User class
 class UserSerializer(serializers.ModelSerializer):
@@ -24,3 +24,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             newUser.set_password(validated_data['password'])
             newUser.save()
             return newUser
+
+class CartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        exclude = []

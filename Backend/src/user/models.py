@@ -14,7 +14,7 @@ class User (models.Model):
     avatar = models.ImageField()
 
     def __str__(self):
-        return self.user_name
+        return self.username
 
 #User Address
 class Address(models.Model):

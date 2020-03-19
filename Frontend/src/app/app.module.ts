@@ -19,7 +19,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component'
 // Importing the pagination module for the application.
 import { NgxPaginationModule } from 'ngx-pagination';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +36,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     WishlistComponent,
     SignupComponent,
     FooterComponent,
-
   ],
   imports: [
     BrowserModule,

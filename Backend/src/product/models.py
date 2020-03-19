@@ -23,6 +23,8 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=6,verbose_name=("Product Price"))
     stock_items = models.IntegerField(verbose_name=("Product Items in Stock"))
     BID = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name=("Brand ID"))
+    CategoryID=models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=("Category ID"))
+    #ParentCategoryID=models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=("Parent Category ID"))
     base_view = models.ImageField(verbose_name=("Product  Image"), blank=True , null=True)#mina Edit
     def __str__(self):
         return str(self.name)

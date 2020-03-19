@@ -14,3 +14,7 @@ class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
         model=Product
         exclude = []
+class ProductIDSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Product
+        exclude = []

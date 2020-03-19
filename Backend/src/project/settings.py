@@ -85,8 +85,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'E_commerce',#dTest
-        'USER':'root',
-        'PASSWORD':'',
+        'USER':'django',
+        'PASSWORD':'1234',
         'HOST':'localhost',
     }
 }

@@ -4,3 +4,9 @@ Parameter Routing
 	https://angular-2-training-book.rangle.io/routing/routeparams
 Pagination  Angular 
 	https://www.javacodegeeks.com/2019/04/angular-pagination-example.html
+Services 
+	https://www.tutomena.com/web-development/javascript/angular-services/
+Routing and Sevices 
+https://www.tutomena.com/web-development/javascript/angular-routing/
+
+

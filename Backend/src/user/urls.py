@@ -7,11 +7,11 @@ from rest_framework.routers import DefaultRouter
 from .apiviews import UsersView, RegisterView, LoginView
 
 userRouter = DefaultRouter()
-userRouter.register('/userslist', UsersView)
+userRouter.register('userslist/', UsersView)
 
 urlpatterns = [
-    path("/register/", RegisterView.as_view(), name="reg"),
-    path("/login/", LoginView.as_view(), name="log"),
+    path("register/", RegisterView.as_view(), name="reg"),
+    path("login/", LoginView.as_view(), name="log"),
 ]
 
 urlpatterns += userRouter.urls

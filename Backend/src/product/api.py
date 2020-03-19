@@ -6,6 +6,7 @@ from .serializers import BrandSerializer
 from .models import Brand
 from .serializers import ProductListSerializer
 from .models import Product
+from .serializers import ProductIDSerializer
 class CategoryAPI(ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -18,10 +19,19 @@ class ProductAPI(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductListSerializer
 class Product_FilterAPI(ListAPIView):
-    serializer_class = ProductListSerializer
+    serializer_class = ProductIDSerializer
     def get_queryset(self):
         num = self.kwargs['num']
-        return Product.objects.filter(BID=num)
+        if num == 1:
+            return Product.objects.filter(CategoryID__in=[2,3,4,5])
+        elif num == 6:
+            return Product.objects.filter(CategoryID__in=[7,8,9,10])
+        elif num == 11:
+            return Product.objects.filter(CategoryID__in=[12,13,14,15])
+        elif num == 16:
+            return Product.objects.filter(CategoryID__in=[17,18,19,20])
+        else:
+            return Product.objects.filter(CategoryID=num)
     #queryset = Product.objects.filter(BID=2)
     
 

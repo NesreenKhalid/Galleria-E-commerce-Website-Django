@@ -16,13 +16,20 @@
                               </div>    
                         </div>
                     </div>
+                    <!--Including the pagination control.-->
+                    <div class="text-right"> 
+                        <pagination-controls (pageChange)="p = $event">
+                        </pagination-controls>
+                    </div>
                 </ng-template>
-                <ng-template #elseBlock>Content to render when value is null.</ng-template>
+                <ng-template #elseBlock>
+                    <div >
+                        <img   style="width : 1200px; max-height : 400px;" src="assets/img/NoProduct.png" alt="">
+                    </div>
+                </ng-template>
     </div>
-<!--Including the pagination control.-->
-<div class="text-right">
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
-</div>
+
+
 </div>
 <!--                  
                   <div class="col-md-4 mt-3">

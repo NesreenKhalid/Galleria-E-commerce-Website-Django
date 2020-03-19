@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
   count: number = 3;
   constructor(private api : ProductlistService,private route:ActivatedRoute){
     //let id = this.route.snapshot.params['id'];
+    this.p=1;
     this.route.paramMap.subscribe(params => this.getProduct(params.get('id')))
     //console.log(id);
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewComponent } from '../review/review.component'
+
 
 @Component({
   selector: 'app-product',

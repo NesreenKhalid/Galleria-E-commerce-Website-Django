@@ -26,3 +26,15 @@ class PictureIDSerializer(serializers.ModelSerializer):
     class Meta:
         model=ProductPicture
         exclude = []
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=ProductComment
+        exclude = []
+    def create(self,data):
+            newComment = ProductComment (
+                comment=data['comment'],
+                review=data['review']
+            )
+            newComment.save()
+            return newComment

@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView
 from .serializers import CategorySerializer
 from .models import Category
 from .serializers import BrandSerializer
@@ -62,3 +62,7 @@ class GetCommentsByProductId(ListAPIView):
     def get_queryset(self):
         product_id = self.kwargs['product_id']
         return ProductComment.objects.filter(PID=product_id)
+
+class CreateComment(CreateAPIView):
+    serializer_class = CommentSerializer
+    

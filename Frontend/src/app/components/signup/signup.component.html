@@ -1,31 +1,61 @@
 <div class="container">
-    <div class="row mt-5">
-        <h3>Sign UP</h3>
-        <div class="mt-5">
-            <form>
-                <div class="form-group">
-                    <label for="Email Name">User Name</label>
-                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder=" Enter user Name">
-                    <small id="nameHelp" class="form-text text-muted">make sure to have a unique user Name.</small>
-                  </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                  </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-              </form>
-              <div class="row">
-                <a routerLink="/login">Have An Account Login From Here</a>
-            </div>
+  <div class="row mt-5">
+    <h3>Sign UP</h3>
+    <div class="mt-5">
+      <form #f="ngForm" (ngSubmit)="signup(f)">
+
+        <!----------------------------- username input ------------------------->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input ngModel name="username" #name="ngModel" type="text" class="form-control" id="username"
+            aria-describedby="emailHelp" placeholder="Enter your Username" required>
+          <small id="nameHelp" class="form-text text-muted">make sure to have a unique user Name.</small>
+          <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Name is required</div>
         </div>
+
+        <!----------------------------- email input ------------------------->
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input ngModel name="email" #email="ngModel" type="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Email" required email>
+          <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
+          <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your input doesn't match email
+            format</div>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <!----------------------------- password input ------------------------->
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input ngModel name="password" #password="ngModel" type="password" class="form-control"
+            id="exampleInputPassword1" placeholder="Password" required minlength="6">
+          <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">Password is required
+          </div>
+          <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Password should be 6+
+            charachters</div>
+        </div>
+
+        <!--------------------------- confirm password input  ----------------------->
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input ngModel name="passwordConfirm" #passwordConfirm="ngModel" type="password" class="form-control"
+            id="exampleInputPassword1" placeholder="Confirm Password" required>
+          <div class="alert alert-danger" *ngIf="passwordConfirm.invalid && passwordConfirm.touched">Password Confirm is
+            required</div>
+          <div class="alert alert-danger" *ngIf="passwordConfirm.value !== password.value && passwordConfirm.touched">
+            Passwords are not equal</div>
+        </div>
+
+        <button class="btn btn-primary" [disabled]="f.invalid || passwordConfirm.value !== password.value">Create
+          Account</button>
+      </form>
+
+      <div class="row">
+        <a routerLink="/login">Have An Account Login From Here</a>
+      </div>
+
+      <br>
+      <div class="alert alert-danger" *ngIf="errorMessage"> {{ errorMessage }} </div>
     </div>
+  </div>
 </div>

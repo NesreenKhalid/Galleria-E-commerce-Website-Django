@@ -32,10 +32,6 @@ class CommentSerializer(serializers.ModelSerializer):
         model=ProductComment
         exclude = []
         depth = 1
-    def create(self,data):
-            newComment = ProductComment (
-                comment=data['comment'],
-                review=data['review']
-            )
-            newComment.save()
-            return newComment
+    def create(self, validated_data):
+        print (validated_data)
+        return ProductComment.objects.create(**validated_data)

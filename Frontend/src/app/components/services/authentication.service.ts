@@ -4,42 +4,29 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { User } from 'src/app/models/user';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
     baseurl = "http://127.0.0.1:8000";
-    private currentUserSubject: BehaviorSubject<User>;
-    public currentUser: Observable<User>;
 
-    constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
+    constructor(private http: HttpClient, public shServ: SharedService) { }
+
+
+    signup(username: string, email: string, password: string ) {
+        return this.http.post(this.baseurl+`/user/register/`, { username, email, password });
     }
 
-    public get currentUserValue(): User {
-        return this.currentUserSubject.value;
-    }
-
+    
     login(username: string, password: string) {
         return this.http.post<any>(this.baseurl+`/user/login/`, { username, password })
-            .pipe(map(user => {
-                // login successful if there's a jwt token in the response
-                if (user) {
-                    // store user details=in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    this.currentUserSubject.next(user);
-                }
-
-                return user;
-            }));
     }
 
     logout() {
-        // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
+        this.shServ.currentUserSubject.next(null);
     }
 }
 

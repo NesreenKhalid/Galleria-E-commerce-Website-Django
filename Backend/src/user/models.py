@@ -5,6 +5,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
+
 #User: ID (auto increment), name, password, email, phone, picture, credit card id last-login, date-joined
 class User (models.Model):
     id = models.AutoField(primary_key = True)
@@ -14,7 +15,7 @@ class User (models.Model):
     avatar = models.ImageField()
 
     def __str__(self):
-        return self.user_name
+        return self.username
 
 #User Address
 class Address(models.Model):

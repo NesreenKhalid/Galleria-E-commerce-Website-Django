@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-review',
@@ -7,7 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewComponent implements OnInit {
 
-  constructor() { }
+  comments;
+  constructor(private api : ProductService, private route:ActivatedRoute){
+    this.route.paramMap.subscribe(params => this.getComments(params.get('id')))
+  }
+
+  getComments(id) : void {
+    this.api.getCommentsByProductId(id).subscribe(
+      data => {
+        this.comments = data[0];
+        console.log(this.comments);          
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
   ngOnInit(): void {
   }

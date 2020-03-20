@@ -9,6 +9,8 @@ from .models import Product
 from .serializers import ProductIDSerializer
 from .models import ProductPicture
 from .serializers import PictureIDSerializer
+from .models import ProductComment
+from .serializers import CommentSerializer
 class CategoryAPI(ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -49,8 +51,14 @@ class GetProductById(ListAPIView):
         id = self.kwargs['id']
         return Product.objects.filter(id = id)
 
-class GetPicturesById(ListAPIView):
+class GetPicturesByProductId(ListAPIView):
     serializer_class = PictureIDSerializer
     def get_queryset(self):
-        id = self.kwargs['id']
-        return ProductPicture.objects.filter(id = id)
+        product_id = self.kwargs['product_id']
+        return ProductPicture.objects.filter(productId=product_id)
+
+class GetCommentsByProductId(ListAPIView):
+    serializer_class = CommentSerializer
+    def get_queryset(self):
+        product_id = self.kwargs['product_id']
+        return ProductComment.objects.filter(productId=product_id)

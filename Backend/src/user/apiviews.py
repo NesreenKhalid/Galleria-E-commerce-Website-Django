@@ -47,7 +47,6 @@ class LoginView(APIView):
             raise exceptions.AuthenticationFailed('No such user')
 class CartView(generics.ListAPIView):
     serializer_class = CartSerializer
-    # queryset = Cart.objects.all()
 
     # def get_queryset(self):
     #     """
@@ -65,3 +64,13 @@ class CartView(generics.ListAPIView):
         """
         userID = self.kwargs['id']
         return Cart.objects.filter(UID=userID)
+
+class CartUpdateView(viewsets.ModelViewSet):
+    # http_method_names = ['get', 'post', 'put', 'delete']
+    serializer_class = CartSerializer
+    queryset = Cart.objects.all()
+    
+    def update(self, request, *args, **kwargs):
+        cartID = self.kwargs['pk']
+        serializer = Cart.objects.filter(id=cartID)
+        return Response(serializer.data)

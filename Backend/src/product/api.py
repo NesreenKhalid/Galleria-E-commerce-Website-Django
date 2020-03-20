@@ -61,4 +61,4 @@ class GetCommentsByProductId(ListAPIView):
     serializer_class = CommentSerializer
     def get_queryset(self):
         product_id = self.kwargs['product_id']
-        return ProductComment.objects.filter(productId=product_id)
+        return ProductComment.objects.filter(PID=product_id)

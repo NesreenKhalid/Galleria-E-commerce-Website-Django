@@ -31,6 +31,7 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model=ProductComment
         exclude = []
+        depth = 1
     def create(self,data):
             newComment = ProductComment (
                 comment=data['comment'],

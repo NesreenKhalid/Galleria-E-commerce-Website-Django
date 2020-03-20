@@ -17,7 +17,7 @@ export class ReviewComponent implements OnInit {
   getComments(id) : void {
     this.api.getCommentsByProductId(id).subscribe(
       data => {
-        this.comments = data[0];
+        this.comments = data;
         console.log(this.comments);          
       },
       error => {

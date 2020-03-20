@@ -16,5 +16,8 @@ export class ProductService {
     return this.http.get(this.baseurl+'/product/'+product_id+'/pictures/',
     {headers :this.httpHeaders });
   }
-
+  getCommentsByProductId(product_id: number){
+    return this.http.get(this.baseurl+'/product/'+product_id+'/comments/',
+    {headers :this.httpHeaders });
+  }
 }

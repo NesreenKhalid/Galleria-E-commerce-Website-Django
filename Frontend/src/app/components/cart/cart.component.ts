@@ -14,7 +14,8 @@ export class CartComponent implements OnInit {
   }
 
   getCart =()=>{
-    this.api.getCart(1).subscribe(
+    // test cart with id
+    this.api.getCart(2).subscribe(
       data => {
         this.products = data;
       },

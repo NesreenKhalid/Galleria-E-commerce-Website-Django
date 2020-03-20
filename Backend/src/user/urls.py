@@ -12,7 +12,10 @@ userRouter.register('userslist/', UsersView)
 urlpatterns = [
     path("register/", RegisterView.as_view(), name="reg"),
     path("login/", LoginView.as_view(), name="log"),
-    path("cart/", CartView.as_view(), name="cart"),
+    # path("cart/", CartView.as_view(), name="cart"),
+    
+    # test cart with id
+    path("<int:id>/cart/", CartView.as_view(), name="cart"), 
 ]
 
 urlpatterns += userRouter.urls

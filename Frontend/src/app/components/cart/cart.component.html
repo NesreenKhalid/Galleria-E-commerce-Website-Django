@@ -2,8 +2,13 @@
 <div class="card">
  
     <ul>
-      <li *ngFor="let product of products">
-          <h2>{{product.id}}</h2>
+      <li *ngFor="let item of products">
+          <h2>{{item.product_name}}</h2>
+          <p>{{item.product_price}}</p>
+          <p>{{item.product_model}}</p>
+          <p>{{item.product_base_view}}</p>
+          <p>{{item.quantity}}</p>
+          <p>{{item.quantity}} * {{item.product_price}}</p>
       </li>
     </ul>
 </div>

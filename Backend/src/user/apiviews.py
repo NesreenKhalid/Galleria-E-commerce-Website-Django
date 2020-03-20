@@ -47,12 +47,21 @@ class LoginView(APIView):
             raise exceptions.AuthenticationFailed('No such user')
 class CartView(generics.ListAPIView):
     serializer_class = CartSerializer
-    queryset = Cart.objects.all()
-    # def get_queryset(self):
-    #     id = self.kwargs['id']
-    #     return Cart.objects.filter(UID = id)
+    # queryset = Cart.objects.all()
 
-    # def get(self, request, *args, **kwargs):
-    #     queryset = Cart.objects.all()
-    #     query = ProductListSerializer(queryset, many=True).data
-    #     return Response(query)
+    # def get_queryset(self):
+    #     """
+    #     return a list of all the records
+    #     for the currently authenticated user.
+    #     """
+    #     user = self.request.user
+    #     return Cart.objects.filter(UID=user.id)
+
+    
+    def get_queryset(self):
+        """
+        return a list of all records for
+        the user as determined by the userID portion of the URL.
+        """
+        userID = self.kwargs['id']
+        return Cart.objects.filter(UID=userID)

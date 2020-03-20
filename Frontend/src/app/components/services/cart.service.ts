@@ -10,8 +10,15 @@ export class CartService {
   constructor(private http :HttpClient) { }
 
   getCart(id: number){
+    // return this.http.get(
+    //           this.baseurl+'/user/cart/' ,
+    //         {headers :this.httpHeaders }
+    //         );
+
+    // # test cart with id
+
     return this.http.get(
-              this.baseurl+'/user/cart/' ,
+              this.baseurl+'/user/'+id+'/cart/' ,
             {headers :this.httpHeaders }
             );
   }

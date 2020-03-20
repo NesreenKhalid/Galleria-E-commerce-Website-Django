@@ -3,6 +3,8 @@ from .models import Category
 from .models import Brand
 from product.models import Product
 from product.models import ProductPicture
+from product.models import ProductComment
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model=Category

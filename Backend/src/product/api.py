@@ -49,8 +49,8 @@ class GetProductById(ListAPIView):
         id = self.kwargs['id']
         return Product.objects.filter(id = id)
 
-class GetPicturesById(ListAPIView):
+class GetPicturesByProductId(ListAPIView):
     serializer_class = PictureIDSerializer
     def get_queryset(self):
-        id = self.kwargs['id']
-        return ProductPicture.objects.filter(id = id)
+        product_id = self.kwargs['product_id']
+        return ProductPicture.objects.filter(productId=product_id)

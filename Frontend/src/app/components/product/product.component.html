@@ -8,16 +8,16 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="carousel" src="assets/img/jumpsuit1.webp" alt="First slide">
+        <img class="carousel" src="{{pictures.front_view}}" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="carousel" src="assets/img/jumpsuit2.webp" alt="Second slide">
+        <img class="carousel" src="{{pictures.top_view}}" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img class="carousel" src="assets/img/jumpsuit3.webp" alt="Third slide">
+        <img class="carousel" src="{{pictures.side_view}}" alt="Third slide">
       </div>
       <div class="carousel-item">
-        <img class="carousel" src="assets/img/jumpsuit4.webp" alt="Forth slide">
+        <img class="carousel" src="{{pictures.inner_view}}" alt="Forth slide">
       </div>
     </div>
     <a class="carousel-control-prev" routerLink="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -31,8 +31,8 @@
 </div>
 <div class="info-box col-md-8 mt-5">
 
-  <label class="font-weight-bold col-md-9 text margin ">Long printed jumpsuit </label>
-  <label class="font-weight-bold col-md-2 text margin float-right">EGP 899</label><br>
+  <label class="font-weight-bold col-md-9 text margin ">{{product.name}}</label>
+  <label class="font-weight-bold col-md-2 text margin float-right">EGP {{product.price}}</label><br>
 
   <div class="container">	
 
@@ -41,9 +41,7 @@
   
   <div class="col-md-8 margin">
   <p class="text"><label class="font-weight-bold text">DESCRIPTION</label><br>
-    Cotton fabric.Printed design. Floral print. <br>
-    Long design. Straight design. Straps. <br>
-    Side length 85.5 cm. Back length 26.5 cm.
+    {{product.description}}
   </p>
   
   </div>

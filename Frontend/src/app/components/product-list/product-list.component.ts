@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';import { ProductlistService } from '../services/productlist.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ProductlistService } from '../services/productlist.service';

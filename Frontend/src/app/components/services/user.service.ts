@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user';
 @Injectable({
   providedIn: 'root'
 })
-export class UserAPIService {
+export class UserService {
   baseurl = "http://127.0.0.1:8000";
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -18,23 +18,15 @@ export class UserAPIService {
       { headers: this.httpHeaders });
   }
 
-  getById(id: number) {
+  getUserById(id: number) {
     return this.http.get(this.baseurl + `/user/userslist/${id}`);
   }
 
-  login(user: User) {
-    return this.http.post(this.baseurl+`/user/login/`, user);
-  }
-
-  register(user: User) {
-    return this.http.post(this.baseurl+`/user/register/`, user);
-  }
-
-  update(user: User) {
+  updateUser(user: User) {
     return this.http.put(this.baseurl+`/user/userslist/${user.id}`, user);
   }
 
-  delete(id: number) {
+  deleteUser(id: number) {
     return this.http.delete(this.baseurl+`/user/userslist/${id}`);
   }
 

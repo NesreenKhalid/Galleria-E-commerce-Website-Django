@@ -38,7 +38,9 @@ class LoginView(APIView):
                 if user.password == password:
                     return Response({"user": {
                                         "id": user.id ,
-                                        "username" : user.username, }
+                                        "username" : user.username, 
+                                        "email": user.email,
+                                        }
                                     })
                 else:
                     return Response({"error": "Wrong Password" }) 

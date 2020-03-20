@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';import { ProductlistService } from '../services/productlist.service';
+import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ProductlistService } from '../services/productlist.service';
 @Component({
@@ -6,13 +7,14 @@ import { ProductlistService } from '../services/productlist.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   products ;//= [{description: "MinaNagy",id:5,model:"",name:"test",price: 200,stock_items: 2}];
   // Pagination parameters.
   p: number = 1;
   count: number = 3;
   searchText;
+  productsObservable: Subscription;
   constructor(private api : ProductlistService,private route:ActivatedRoute){
     //let id = this.route.snapshot.params['id'];
     this.route.paramMap.subscribe(params => this.getProduct(params.get('id')))
@@ -36,6 +38,9 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy() {
+    this.productsObservable.unsubscribe()
+  }
 
 }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductlistService } from '../services/productlist.service';
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -13,6 +12,7 @@ export class ProductListComponent implements OnInit {
   // Pagination parameters.
   p: number = 1;
   count: number = 3;
+  searchText;
   constructor(private api : ProductlistService,private route:ActivatedRoute){
     //let id = this.route.snapshot.params['id'];
     this.route.paramMap.subscribe(params => this.getProduct(params.get('id')))
@@ -38,3 +38,16 @@ export class ProductListComponent implements OnInit {
 
 
 }
+
+/*{
+  id:number;
+  name:string;
+  description:string;
+  model: string;
+  price: string;
+  stock_items: number;
+  base_view:string;
+  BID: number;
+  CategoryID: number;
+}*/
+

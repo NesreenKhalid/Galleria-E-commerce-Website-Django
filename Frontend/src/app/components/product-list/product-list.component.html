@@ -1,17 +1,20 @@
 <div *ngIf="products.length > 0; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock>
-		<div class="container mt-5 mb-5">
+    <div class="search-product">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" Start searching for a products by name or Prices .....">
+      </div>
+    <div class="container mt-5 mb-5">
 		    <div class="row">
                 <!-- Put Grid System-->
                 <!-- md== Merge-->
-        	<div *ngFor="let product of products | paginate: { itemsPerPage: count, currentPage: p }">
+        	<div *ngFor="let product of products | filter:searchText | paginate: { itemsPerPage: count, currentPage: p }">
                 	<div class="col-md-4 mt-3" >
                         	<div class="card h-100 " style="width: 18rem;">
                         		<img class="card-img-top img-thumbnail"  style="max-height : 200px;" src="{{product.base_view}}" alt="Card image cap">
                              		<div class="card-body">
                              		           <h5 class="card-title">{{product.name}}</h5>
                              		           <p class="card-text">{{product.price}} EGP</p>
-                             		            <a [routerLink]="['/products',product.id]" class="btn btn-primary">Go somewhere</a>
+                             		            <a [routerLink]="['/products',product.id]" class="btn btn-primary">Go TO Product</a>
                              	       </div>
                               </div>    
                         </div>

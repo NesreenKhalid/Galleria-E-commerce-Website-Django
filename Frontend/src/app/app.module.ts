@@ -20,6 +20,9 @@ import { FooterComponent } from './components/footer/footer.component'
 // Importing the pagination module for the application.
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReviewComponent } from './components/review/review.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,9 @@ import { ReviewComponent } from './components/review/review.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule, 
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

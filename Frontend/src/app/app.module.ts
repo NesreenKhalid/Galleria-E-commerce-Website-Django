@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -15,8 +18,13 @@ import { CardComponent } from './components/card/card.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { SignupComponent } from './components/signup/signup.component';
-import {HttpClientModule} from '@angular/common/http'
+import { FooterComponent } from './components/footer/footer.component';
 
+// Importing the pagination module for the application.
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ReviewComponent } from './components/review/review.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,12 +42,16 @@ import {HttpClientModule} from '@angular/common/http'
     UserProfileComponent,
     WishlistComponent,
     SignupComponent,
-
+    FooterComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule,
+    FormsModule, 
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

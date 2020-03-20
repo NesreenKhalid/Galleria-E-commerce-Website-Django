@@ -1,0 +1,76 @@
+.carousel {
+    widows: col md -4px;
+    height:540px;
+    float: left;
+    margin-left: 10px;
+}
+
+.info-box{
+    widows: col md -8px;
+    height:540px;
+    float:right;
+    margin-left: auto;
+}
+
+.buttonM{
+    background-color: #ffc2c2;
+    border: none;
+    margin:2px;
+}
+.buttonM:hover{
+    background-color: #FF748C;
+}
+.text{
+    color:#010a43;
+}
+.checked {
+    color: orange;
+}
+
+.margin{
+    margin:5px;
+    padding: 5px;
+}
+
+/***
+ *  Simple Pure CSS Star Rating Widget Bootstrap 4 
+ * 
+ *  www.TheMastercut.co
+ *  
+ ***/
+
+ @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+ /* Styling h1 and links
+ ––––––––––––––––––––––––––––––––– */
+ h1[alt="Simple"] {color: white;}
+ a[href], a[href]:hover {color: grey; font-size: 0.5em; text-decoration: none}
+ 
+ 
+ body
+ {
+   background: #4a4a4c !important;
+ }
+ 
+ .starrating > input {display: none;}  /* Remove radio buttons */
+ 
+ .starrating > label:before { 
+   content: "\f005"; /* Star */
+   margin: 2px;
+   font-size: 1.5rem;
+   font-family: FontAwesome;
+   display: inline-block; 
+ }
+ 
+ .starrating > label
+ {
+   color: gray; /* Start color when not clicked */
+ }
+ 
+ .starrating > input:checked ~ label
+ { color: #ffca08 ; } /* Set yellow color when star checked */
+ 
+ .starrating > input:hover ~ label
+ { color: #ffca08 ;  } /* Set yellow color when star hover */
+ 
+ 

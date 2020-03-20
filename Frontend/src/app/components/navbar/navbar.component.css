@@ -1,0 +1,36 @@
+.dropdown-menu {
+    min-width: 35rem;
+}
+.text{
+    color:#010a43;
+}
+.bg{
+    color:#ffc2c2;
+}
+.link{
+    color: #010a43;
+    text-decoration: none;
+}
+.link:hover{
+    color: #FF748C;
+}
+.nobull{
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+    width: auto;
+    float: left;
+}
+.button{
+    background-color: #ffc2c2;
+    border: none;
+}
+.button:hover{
+    background-color: #FF748C;
+}
+.input{
+    border-color: #ffc2c2;
+}
+.input:selection{
+    border-color: #FF748C;
+}

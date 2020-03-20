@@ -33,6 +33,7 @@ CORS_ORIGIN_WHITELIST = [
 
 INSTALLED_APPS = [
     'product.apps.ProductConfig',
+    'wishlist',
     'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dTest',#E_commerce
+        'NAME': 'E_commerce',#dTest
         'USER':'django',
         'PASSWORD':'1234',
         'HOST':'localhost',

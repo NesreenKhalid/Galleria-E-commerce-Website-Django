@@ -1,0 +1,29 @@
+.text{
+    color:#010a43;
+    text-decoration: none;
+}
+.link{
+    color: #010a43;
+    text-decoration: none;
+}
+.link:hover{
+    color: #FF748C;
+}
+.nobull{
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+    width: auto;
+    float: left;
+}
+.light_bg{
+    background-color: #ffc2c2;
+}
+.dark_bg{
+    background-color: #FF748C;
+}
+
+.page-footer{
+    bottom:0;
+    position: relative;
+}

@@ -1,42 +1,46 @@
-import { UserAPIService } from './../services/user-api.service';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [UserService]
 })
 export class LoginComponent {
-  user: string;
-  token: string;
-  login: boolean;
-  constructor(private userServices: UserAPIService) {
-    const first = this.userServices.login('admin', 'admin');
-    const second = this.userServices.login('admin', 'admin2');
-    console.log(first, second);
-    console.log(second, first);
-  }
 
-  public getUser() {
-    return this.user;
-  }
+  constructor(private authServ: AuthenticationService, public shServ: SharedService, private router: Router) { }
 
-  public setUser(){
-    // this.user=data;
-  }
+  login(form) {
+    let data = form.value
+    this.authServ.login(data.username, data.password).subscribe(
+      response => {
+        if (response.hasOwnProperty('user')) {
+          console.log('response', response);
+          alert('Welcome, ' + data.username);
+          this.router.navigate([''])
+          let currentUser = new User(response.user)
 
-  public getLogin() {
-    return this.user;
-  }
+          localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          this.shServ.currentUserSubject.next(currentUser);
 
-  public setLogin(){
-    // this.user=data;
-  }
-  public getToken() {
-    return this.user;
-  }
+          console.log(currentUser);
 
-  public setToken(){
-    // this.user=data;
+          alert('Welcome, ' + data.username);
+          this.router.navigate([''])
+        } else {
+          alert(response.error);
+        }
+      },
+      err => {
+        console.log(err);
+        
+        console.log(err.error);
+        alert('Error: ' + err.error);
+      })
   }
 }

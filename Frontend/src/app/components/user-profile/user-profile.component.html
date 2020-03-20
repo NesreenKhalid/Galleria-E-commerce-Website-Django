@@ -3,9 +3,10 @@
         <!--col 1 start -->
         <div class="col-xs-12 col-sm-3 center">
             <div class="card" id="profile-picture">
-                  <img class="card-img-top" class = "user img" alt=" Avatar" id="avatar2" src="../../../assets/img/example.jpg" style="height:100; width:100%">
+                <img class="card-img-top" class="user img" alt=" Avatar" id="avatar2"
+                    src="../../../assets/img/example.jpg" style="height:100; width:100%">
             </div>
-            
+
             <div class="space space-4"></div>
 
             <form>
@@ -25,7 +26,7 @@
         <!-- col 2 start -->
         <div class="col-xs-12 col-sm-9">
             <h4 class="blue">
-                [User Name]
+                {{currentUser.username}}
             </h4>
 
             <div class="profile-user-info">
@@ -64,7 +65,7 @@
                     <div class="profile-info-name"> Email </div>
 
                     <div class="profile-info-value">
-                        <a href="#" target="_blank">[email]</a>
+                        <a href="#" target="_blank"> {{currentUser.email}}</a>
                     </div>
                 </div>
 

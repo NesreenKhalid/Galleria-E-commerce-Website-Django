@@ -15,6 +15,8 @@ from rest_framework.response import Response
 from .serializer import UserSerializer, RegisterSerializer, CartSerializer
 from .models import User , Cart
 
+# from product.serializers import ProductListSerializer
+
 ### we have defined the http methods allowed with 'http_method_names'
 ### we have allowed 'get' and 'update' method and disapled 'post'
 ### because any 'post' on this list must be validated which is done through another apiview
@@ -49,3 +51,8 @@ class CartView(generics.ListAPIView):
     # def get_queryset(self):
     #     id = self.kwargs['id']
     #     return Cart.objects.filter(UID = id)
+
+    # def get(self, request, *args, **kwargs):
+    #     queryset = Cart.objects.all()
+    #     query = ProductListSerializer(queryset, many=True).data
+    #     return Response(query)

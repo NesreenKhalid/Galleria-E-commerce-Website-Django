@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import User, Cart
+# from product.serializers import ProductListSerializer
+# from product.models import Product
 
 ### serializer the User class
 class UserSerializer(serializers.ModelSerializer):
@@ -26,6 +28,22 @@ class RegisterSerializer(serializers.ModelSerializer):
             return newUser
 
 class CartSerializer(serializers.ModelSerializer):
+
+    product_name = serializers.CharField(source='PID.name')
+    product_price = serializers.DecimalField(decimal_places=2, max_digits=6,source='PID.price')
+    product_model = serializers.CharField(source='PID.model')
+    product_base_view = serializers.ImageField(source='PID.base_view')
     class Meta:
         model = Cart
-        exclude = []
+        # depth = 1
+        exclude = ('id',)
+
+    # product = serializers.SerializerMethodField()
+
+    # def get_product(self, obj):
+    #     try:
+    #         serializer = ProductListSerializer(Product.objects.get(pk=int(obj.PID)))
+    #         product_data = serializer.data
+    #     except product_data.DoesNotExist:
+    #          pass
+    #     return product_data

@@ -7,6 +7,8 @@
   /* Bottom left text */
 .bottom-left {
     position: absolute;
-    bottom: 70px;
-    left: 250px;
+    bottom: 450px;
+    left: 150px;
+    font-size: 40px;
+    font-style: oblique;
   }

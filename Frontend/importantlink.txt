@@ -1,0 +1,12 @@
+Parameter Routing
+	https://www.youtube.com/watch?v=R_exPr7IWHU
+	https://www.techiediaries.com/angular/angular-9-route-parameters-snapshot-parammap-example/
+	https://angular-2-training-book.rangle.io/routing/routeparams
+Pagination  Angular 
+	https://www.javacodegeeks.com/2019/04/angular-pagination-example.html
+Services 
+	https://www.tutomena.com/web-development/javascript/angular-services/
+Routing and Sevices 
+https://www.tutomena.com/web-development/javascript/angular-routing/
+
+

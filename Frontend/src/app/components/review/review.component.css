@@ -1,0 +1,25 @@
+.card-inner{
+    margin-left: 4rem;
+}
+
+.hide{
+    color: white;
+}
+
+.margin{
+    margin:5px;
+    padding: 5px;
+}
+
+.buttonM{
+    background-color: #ffc2c2;
+    border: none;
+    margin:2px;
+}
+.buttonM:hover{
+    background-color: #FF748C;
+}
+
+.text{
+    color:#010a43;
+}

@@ -1,46 +1,65 @@
-<div class="container mt-5 mb-5">
+<div *ngIf="products.length > 0; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <div class="search-product">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder=" Start searching for a products by name or Prices .....">
+    </div>
+    <div class="container mt-5 mb-5">
         <div class="row">
-                    <!-- Put Grid System-->
-                    <!-- md== Merge-->
-                    <div *ngFor="let product of products">
-                      <div class="col-md-4 mt-3">
-                        <div class="card" style="width: 18rem;">
-                          <img class="card-img-top" src="assets/img/lap.jpg" alt="Card image cap">
-                          <div class="card-body">
+            <!-- Put Grid System-->
+            <!-- md== Merge-->
+            <div
+                *ngFor="let product of products | filter:searchText | paginate: { itemsPerPage: count, currentPage: p }">
+                <div class="col-md-4 mt-3">
+                    <div class="card h-100 " style="width: 18rem;">
+                        <img class="card-img-top img-thumbnail" style="max-height : 200px;" src="{{product.base_view}}"
+                            alt="Card image cap">
+                        <div class="card-body">
                             <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.description}}</p>
-                            <a routerLink="/product/1" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                      </div>    
-                      </div>
+                            <p class="card-text">{{product.price}} EGP</p>
+                            <a [routerLink]="['/products',product.id]" class="btn btn-primary">Go TO Product</a>
+                        </div>
                     </div>
-<!--                  
-                      <div class="col-md-4 mt-3">
-                        <app-card></app-card>      
-                      </div>
-                      
-                      <div class="col-md-4 mt-3">
-                        <app-card></app-card>  
-                    </div>
-                    
-                    <div class="col-md-4 mt-3">
-                        <app-card></app-card>  
-                    </div>
-                    
-                    <div class="col-md-4 mt-3">
-                        <app-card></app-card>  
-                    </div>
-                      
-                    <div class="col-md-4 mt-3">
-                        <app-card></app-card>  
-                    </div>
-                      
-                    <div class="col-md-4 mt-3">
-                        <app-card></app-card>  
-                    </div>
+                </div>
+            </div>
+        </div>
 
-      </div> 
-    -->
-  <div class="container">
-  </div>
-</div>
+        <!--Including the pagination control.-->
+        <div class="text-right">
+            <pagination-controls (pageChange)="p = $event">
+            </pagination-controls>
+        </div>
+    </div>
+</ng-template>
+<ng-template #elseBlock>
+    <div>
+        <img style="width : 1200px; max-height : 400px;" src="assets/img/NoProduct.png" alt="">
+    </div>
+</ng-template>
+<!--                  
+                  <div class="col-md-4 mt-3">
+                    <app-card></app-card>      
+                  </div>
+                  
+                  <div class="col-md-4 mt-3">
+                    <app-card></app-card>  
+                </div>
+                
+                <div class="col-md-4 mt-3">
+                    <app-card></app-card>  
+                </div>
+                
+                <div class="col-md-4 mt-3">
+                    <app-card></app-card>  
+                </div>
+                  
+                <div class="col-md-4 mt-3">
+                    <app-card></app-card>  
+                </div>
+                  
+                <div class="col-md-4 mt-3">
+                    <app-card></app-card>  
+                </div>
+
+  </div> 
+-->

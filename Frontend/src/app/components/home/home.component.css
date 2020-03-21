@@ -3,12 +3,18 @@
     text-align: center;
     color: brown;
   }
-  
   /* Bottom left text */
 .bottom-left {
-    position: absolute;
+    /* position: absolute; */
+    color: crimson;
     bottom: 450px;
     left: 150px;
     font-size: 40px;
     font-style: oblique;
+    font-family: Arial, Helvetica, sans-serif;
   }
+.img-size{
+
+  height: 200px;
+  width: 100%;  
+}

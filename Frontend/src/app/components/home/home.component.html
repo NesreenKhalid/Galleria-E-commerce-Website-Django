@@ -1,8 +1,9 @@
 <div>
-  <div class="container">
-    <img src="../assets/img/home.jpg" class="img-fluid" alt="Responsive image" width=100%>
-    <div class="bottom-left">GALIERIA Shopping</div>
-  </div>
+  <!-- <div class="container"> -->
+    <h1 class="bottom-left" style="font-size:50px">GALIERIA Shopping</h1>
+    <!-- <img src="../assets/img/welcome.jpg" class="img-fluid img-size" alt="Responsive image" width=100%> -->
+    <!-- <div class="bottom-left">GALIERIA Shopping</div> -->
+
   <div *ngIf="products.length > 0; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
     <!-- <div class="search-product">
@@ -11,8 +12,7 @@
     </div> -->
     <div class="container mt-5 mb-5">
       <div class="row">
-        <!-- Put Grid System-->
-        <!-- md== Merge-->
+
         <div *ngFor="let product of products | filter:searchText | paginate: { itemsPerPage: count, currentPage: p }">
           <div class="col-md-4 mt-3">
             <div class="card h-100 " style="width: 18rem;">

@@ -22,4 +22,14 @@ export class CartService {
             {headers :this.httpHeaders }
             );
   }
+
+  
+  updateQTY(id: number, new_quantity: number){
+    const body = {quantity: new_quantity}
+    return this.http.put(
+              this.baseurl+'/user/cart/'+id , body,
+            {headers :this.httpHeaders }
+            );
+  }
+
 }

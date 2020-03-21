@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink="#">Galleria</a>
+  <a class="navbar-brand" routerLink="" routerLinkActive="active">Galleria</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,7 +8,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink="products">
-          <img src="/assets/img/house.svg" alt="" width="32" height="32" title="Home">
+          <img src="/assets/img/house.svg" routerLink="" routerLinkActive="active" width="32" height="32" title="Home">
            <span class="sr-only">(current)</span>
         </a>
       </li>
@@ -81,10 +81,46 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="input form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <div class="search-product">
+        <input class="input form-control mr-sm-2" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Search by name or Prices ....." aria-label="Search">
+      </div>
+      <!-- <input class="input form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
       <button class="btn button btn-outline-success my-2 my-sm-0" type="submit"><img src="/assets/img/search.svg" alt="" width="26" height="26" title="Search"></button>
       <svg class="bi bi-shield-fill" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"></svg>
     </form>
+    <button class="btn text button btn-outline-success my-2 my-sm-0" routerLink="login">Log In</button>
+    <svg class="bi bi-shield-fill" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"></svg>
+
     <button class="btn text button btn-outline-success my-2 my-sm-0" routerLink="signup">Sign Up</button>
   </div>
+
+
 </nav>
+
+    <!-- <div class="search-product">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder=" Start searching for a products by name or Prices .....">
+    </div> -->
+    
+    <!-- <div class="container mt-5 mb-5">
+      <div class="row">
+        <div *ngFor="let product of products | filter:searchText | paginate: { itemsPerPage: count, currentPage: p }">
+          <div class="col-md-4 mt-3">
+            <div class="card h-100 " style="width: 18rem;">
+              <img class="card-img-top img-thumbnail" style="max-height : 200px;" src="{{product.base_view}}"
+                alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.price}} EGP</p>
+                <a [routerLink]="['/products',product.id]" class="btn btn-primary">Go TO Product</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-right">
+        <pagination-controls (pageChange)="p = $event">
+        </pagination-controls>
+      </div>
+    </div> -->

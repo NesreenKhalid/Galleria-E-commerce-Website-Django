@@ -35,15 +35,9 @@ class CartSerializer(serializers.ModelSerializer):
     product_base_view = serializers.ImageField(source='PID.base_view')
     class Meta:
         model = Cart
-        # depth = 1
-        exclude = ('id',)
+        exclude = []
 
-    # product = serializers.SerializerMethodField()
-
-    # def get_product(self, obj):
-    #     try:
-    #         serializer = ProductListSerializer(Product.objects.get(pk=int(obj.PID)))
-    #         product_data = serializer.data
-    #     except product_data.DoesNotExist:
-    #          pass
-    #     return product_data
+class CartQTYSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        exclude = []
